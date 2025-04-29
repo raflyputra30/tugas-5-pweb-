@@ -308,7 +308,54 @@
     </form>
   </div>
 </div>
+<div class="guestbook">
+  <h2>Buku Tamu</h2>
+  <form id="guestbookForm">
+    <label for="guestName">Nama:</label>
+    <input type="text" id="guestName" name="guestName" required />
 
+    <label for="guestMessage">Pesan:</label>
+    <textarea id="guestMessage" name="guestMessage" rows="4" required></textarea>
+
+    <button type="submit">Kirim Pesan</button>
+  </form>
+
+  <div class="messages" id="messages">
+    <!-- Pesan akan muncul di sini -->
+  </div>
+</div>
+
+<script>
+  const guestbookForm = document.getElementById("guestbookForm");
+  const messagesContainer = document.getElementById("messages");
+
+  guestbookForm.addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    const guestName = document.getElementById("guestName").value;
+    const guestMessage = document.getElementById("guestMessage").value;
+
+    const messageDiv = document.createElement("div");
+    messageDiv.classList.add("message");
+
+    const messageContent = `
+      <h3>${guestName}</h3>
+      <p>${guestMessage}</p>
+      <button onclick="deleteMessage(this)">Hapus</button>
+    `;
+    
+    messageDiv.innerHTML = messageContent;
+    messagesContainer.appendChild(messageDiv);
+
+    // Clear the form after submission
+    guestbookForm.reset();
+  });
+
+  function deleteMessage(button) {
+    const messageDiv = button.parentElement;
+    messagesContainer.removeChild(messageDiv);
+  }
+</script>
 <footer>
   <p>© 2025 Mochammad Rafly Putra Mulyana. Seluruh hak cipta dilindungi.</p>
   <p><a href="#kontak">Hubungi Saya</a></p>
