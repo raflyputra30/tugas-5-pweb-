@@ -169,7 +169,7 @@
       box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
       margin-top: 1.5rem;
     }
-    /* Styles for the Guestbook section */
+   /* Styles for the Guestbook section */
     .guestbook {
       background-color: #fff;
       padding: 2rem;
@@ -325,6 +325,23 @@
   </div>
 </div>
 
+<div class="guestbook">
+  <h2>Buku Tamu</h2>
+  <form id="guestbookForm">
+    <label for="guestName">Nama:</label>
+    <input type="text" id="guestName" name="guestName" required />
+
+    <label for="guestMessage">Pesan:</label>
+    <textarea id="guestMessage" name="guestMessage" rows="4" required></textarea>
+
+    <button type="submit">Kirim Pesan</button>
+  </form>
+
+  <div class="messages" id="messages">
+    <!-- Pesan akan muncul di sini -->
+  </div>
+</div>
+
 <script>
   const guestbookForm = document.getElementById("guestbookForm");
   const messagesContainer = document.getElementById("messages");
@@ -356,6 +373,7 @@
     messagesContainer.removeChild(messageDiv);
   }
 </script>
+
 <footer>
   <p>© 2025 Mochammad Rafly Putra Mulyana. Seluruh hak cipta dilindungi.</p>
   <p><a href="#kontak">Hubungi Saya</a></p>
